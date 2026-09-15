@@ -24,7 +24,9 @@ QA_CHECKER = "assets/characters/hero_caveman/source/qa_transparency_check.png"
 QA_UPSCALE = "assets/characters/hero_caveman/source/qa_sprite_4x.png"
 
 W, H = 176, 392
-MARGIN = 0.05          # ~5% margin on each side
+# margin fraction per side; 0 = character bbox flush to the frame edges
+# (vertical axis is the binding constraint for this silhouette aspect)
+MARGIN = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0
 SCALE_SUPERSAMPLE = 4  # compose at 4x, then downscale
 
 def main():
